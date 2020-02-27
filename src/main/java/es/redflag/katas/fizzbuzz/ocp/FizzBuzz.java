@@ -1,28 +1,33 @@
 package es.redflag.katas.fizzbuzz.ocp;
 
+import java.util.List;
+
 public class FizzBuzz
 {
+    private List<Rule> rules;
 
-    public static final String FIZZ = "Fizz";
-    public static final String BUZZ = "Buzz";
-    public static final String FIZZBUZZ = FIZZ + BUZZ;
-
-    public static String say(int value)
+    public FizzBuzz(List<Rule> rules)
     {
-        if (isFizz(value) && isBuzz(value)) return FIZZBUZZ;
-        if (isFizz(value)) return FIZZ;
-        if (isBuzz(value)) return BUZZ;
-
-        return String.valueOf(value);
+        this.rules = rules;
     }
 
-    private static boolean isBuzz(int value)
+    public String say(int value)
     {
-        return value % 5 == 0;
+        String result = appy(this.rules, value);
+
+        if (result.isEmpty())
+        {
+            result = String.valueOf(value);
+        }
+
+        return result;
     }
 
-    private static boolean isFizz(int value)
+    private static String appy(List<Rule> rules, int value)
     {
-        return value % 3 == 0;
+        return rules.stream()
+                .filter(rule -> rule.applies(value))
+                .map(rule -> rule.execute(value))
+                .reduce("", (accumul, item) -> accumul + item);
     }
 }
