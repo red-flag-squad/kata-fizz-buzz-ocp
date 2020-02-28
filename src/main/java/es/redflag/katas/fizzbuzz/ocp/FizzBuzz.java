@@ -22,8 +22,23 @@ public class FizzBuzz
 
         return result;
     }
-
+    
     private static String appy(List<Rule> rules, int value)
+    {
+        String result = "";
+
+        for (Rule rule : rules)
+        {
+            if (rule.applies(value))
+            {
+                result+= rule.execute(value);
+            }
+        }
+
+        return result;
+    }
+
+    private static String appyWithLambda(List<Rule> rules, int value)
     {
         return rules.stream()
                 .filter(rule -> rule.applies(value))
