@@ -7,7 +7,7 @@ public class FizzBuzz
 
     public static final String FIZZBUZZ = FIZZ + BUZZ;
 
-    public static String say(int value)
+    public String say(int value)
     {
         if (isFizz(value) && isBuzz(value)) return FIZZBUZZ;
         if (isFizz(value)) return FIZZ;
@@ -16,12 +16,12 @@ public class FizzBuzz
         return String.valueOf(value);
     }
 
-    private static boolean isBuzz(int value)
+    private boolean isBuzz(int value)
     {
         return value % 5 == 0;
     }
 
-    private static boolean isFizz(int value)
+    private boolean isFizz(int value)
     {
         return value % 3 == 0;
     }
