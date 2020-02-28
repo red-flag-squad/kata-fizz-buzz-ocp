@@ -29,40 +29,40 @@ public class FizzBuzzTest
     @Before
     public void init()
     {
-        this.fizzBuzz = new FizzBuzz(RULES);
+        fizzBuzz = new FizzBuzz(RULES);
     }
 
     @Test
     public void regularNumbersShouldReturnTheSameValue() throws Exception
     {
-        assertThat(this.fizzBuzz.say(1), is(equalTo("1")));
-        assertThat(this.fizzBuzz.say(2), is(equalTo("2")));
+        assertThat(fizzBuzz.say(1), is(equalTo("1")));
+        assertThat(fizzBuzz.say(2), is(equalTo("2")));
     }
 
     @Test
     public void shouldReturnFizzWhenDivisibleByThree() throws Exception
     {
-        assertThat(this.fizzBuzz.say(3), is(equalTo(FIZZ)));
-        assertThat(this.fizzBuzz.say(6), is(equalTo(FIZZ)));
+        assertThat(fizzBuzz.say(3), is(equalTo(FIZZ)));
+        assertThat(fizzBuzz.say(6), is(equalTo(FIZZ)));
     }
 
     @Test
     public void shouldReturnBuzzWhenDivisibleByFive() throws Exception
     {
-        assertThat(this.fizzBuzz.say(5), is(equalTo(BUZZ)));
-        assertThat(this.fizzBuzz.say(10), is(equalTo(BUZZ)));
+        assertThat(fizzBuzz.say(5), is(equalTo(BUZZ)));
+        assertThat(fizzBuzz.say(10), is(equalTo(BUZZ)));
     }
 
     @Test
     public void shouldReturnBazzWhenDivisibleBySeven() throws Exception
     {
-        assertThat(this.fizzBuzz.say(7), is(equalTo(BAZZ)));
-        assertThat(this.fizzBuzz.say(14), is(equalTo(BAZZ)));
+        assertThat(fizzBuzz.say(7), is(equalTo(BAZZ)));
+        assertThat(fizzBuzz.say(14), is(equalTo(BAZZ)));
     }
 
     @Test
     public void shouldReturnFizzBuzzWhenDivisibleByThreeAndFive() throws Exception
     {
-        assertThat(this.fizzBuzz.say(15), is(equalTo(FIZZBUZZ)));
+        assertThat(fizzBuzz.say(15), is(equalTo(FIZZBUZZ)));
     }
 }
